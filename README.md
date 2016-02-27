@@ -3,4 +3,4 @@ setup script for shadowsocks
 
 just for fun
 
-转载请附链接
+转载或引用源码请附链接
