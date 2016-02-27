@@ -1,16 +1,21 @@
 #!/bin/bash
 
 init() {
+	#make preperation
 	apt-get update
 	apt-get upgrade
 	apt-get install build-essential python-pip python-m2crypto python-dev python-gevent supervisor
-	apt-get install vim
-	mkdir /etc/shadowsocks
-	
+
 	pip install shadowsocks
 }
 
 set_config() {
+
+	#make dir foe shadowsocks config
+	if [ -d /etc/shadowsocks] then
+		rm /etc/shadowsocks
+	fi
+
 	echo "Please enter server ip:"
 	read ip
 	echo "Please enter root usr port:"
@@ -31,5 +36,12 @@ set_config() {
 }
 
 set_service() {
-	service_file = "/etc/init.d/shadowsocks"
+	service_file="/etc/init.d/shadowsocks"
+
+	if [ -f "$service_file" ]; then
+		return 0
+	fi
+
+	copy shadowsocks $service_file
+	chmod +x $service_file
 }
