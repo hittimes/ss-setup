@@ -45,3 +45,7 @@ set_service() {
 	copy shadowsocks $service_file
 	chmod +x $service_file
 }
+
+init()
+set_config()
+set_service()
