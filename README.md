@@ -1,4 +1,7 @@
 # ss-setup
+
+<usage> sudo ./ss-setup.sh
+
 setup script for shadowsocks
 
 just for fun
